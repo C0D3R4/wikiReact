@@ -1,0 +1,20 @@
+{
+  "name": "wicker",
+  "description": "A live collaborative wiki",
+  "main": "server.js",
+  "authors": [
+    ""
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/C0D3R4/wikiReact",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "skeleton": "^2.0.4"
+  }
+}
