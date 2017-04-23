@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import * as API from '../api'
 
 export default class Login extends Component {

@@ -18,10 +18,15 @@ router.use(require('express-session')({
 }))
 
 router.post('/api/signup', function (req, res) {
-  var username = req.body.username,
-    password = req.body.password
+  var username = req.body.username
+  var password = req.body.password
 
-  if (!username || !password) { return res.json({ signedIn: false, message: 'no username or password'}) }
+  if (!username || !password) {
+    return res.json({
+      signedIn: false,
+      message: 'no username or password'
+    })
+  }
 
   users.child(username).once('value', function (snapshot) {
     if (snapshot.exists()) { return res.json({ signedIn: false, message: 'user already in use' }) }
@@ -41,12 +46,24 @@ router.post('/api/signup', function (req, res) {
 })
 
 router.post('/api/signup', function (req, res) {
-  var username = req.body.username,
-    password = req.body.password
+  var username = req.body.username
+  var password = req.body.password
 
-  if (!username || !password) { return res.json({ signedIn: false, message: 'no username or password'}) }
+  if (!username || !password) {
+    return res.json({
+      signedIn: false,
+      message: 'no username or password'
+    })
+  }
+
   users.child(username).once('value', function (snapshot) {
-    if (!snapshot.exists() || snapshot.child('passwordHash').val() !== hash(passoword)) { return res.json({ signedIn: false, message: 'Wrong username or passoword' }) }
+    if (!snapshot.exists() || snapshot.child('passwordHash').val() !== hash(password)) {
+      return res.json({
+        signedIn: false,
+        message: 'Wrong username or password'
+      })
+    }
+
     var user = snapshot.exportVal()
 
     req.session.user = user
