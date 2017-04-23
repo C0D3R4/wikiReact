@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "test": "standard",
     "postinstall": "bower install",
     "build:js": "browserify ./src/app.js -t [ babelify --optional es7.classProperties ] --outfile public/all.js",
     "build": "watch 'npm run build:js' ./src"
@@ -14,6 +15,7 @@
   "devDependencies": {
     "babelify": "^6.2.0",
     "browserify": "^11.0.1",
+    "standard": "^10.0.2",
     "watch": "^0.16.0"
   },
   "dependencies": {

@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {RouterHandler} from 'react-router';
 import Login from './Login';
 
-export default class App extends React.Component {
+export default class App extends Component {
     state = { user: USER }
 
     render () {
-        return <div>
+        return (
+          <div>
             <div className='row'>
                 <div className='three columns'>
                     <h1>Wikireck</h1>
@@ -18,9 +19,7 @@ export default class App extends React.Component {
                     <RouteHandler user={this.state.user} />
                 </div>
             </div>
-        </div>;
+          </div>
+        )
     }
 }
-
-
-module.exports = router;
